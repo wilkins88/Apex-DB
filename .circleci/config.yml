@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-   sfdx: circleci/salesforce-sfdx@x.y
+   sfdx: circleci/salesforce-sfdx@1.0.0
 jobs:
    install_authenticate:
      executor: sfdx/default
@@ -8,7 +8,7 @@ jobs:
        - checkout
        - sfdx/install
        - sfdx/auth:
-           defaultusername: user@email.com
+           defaultusername: twilkins@consultforce.com
        - run:
            name: Run your SFDX commands here
            command: |
