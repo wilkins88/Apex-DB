@@ -1,32 +1,19 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2.1
-jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:10.16.3
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: npm install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests, linter, and audit
-      - run: npm run validate
+ orbs:
+   sfdx: circleci/salesforce-sfdx@x.y
+ jobs:
+   install_authenticate:
+     executor: sfdx/default
+     steps:
+       - checkout
+       - sfdx/install
+       - sfdx/auth:
+           defaultusername: twilkins@consultforce.com
+       - run:
+           name: Run your SFDX commands here
+           command: |
+             echo "You now have access to the sfdx cli and may execute commands against it. https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm"
+ workflows:
+   basic-test:
+     jobs:
+       - install_authenticate
