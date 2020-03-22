@@ -1,1 +1,20 @@
-{}
+{
+  "name": "consultforce",
+  "version": "1.0.0",
+  "description": "Salesforce package for managing services sales and fulfillment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilkins88/ConsultForce.git"
+  },
+  "author": "Thomas Wilkins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilkins88/ConsultForce/issues"
+  },
+  "homepage": "https://github.com/wilkins88/ConsultForce#readme"
+}
