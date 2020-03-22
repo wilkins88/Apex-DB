@@ -12,7 +12,8 @@ jobs:
        - run:
            name: Run your SFDX commands here
            command: |
-             if [[ $(echo "$CIRCLE_BRANCH" | grep -c "pull") -gt 0 ]]; then
+             if [[ ! -z $CIRCLE_PULL_REQUEST ]] ; then
+               echo $CIRCLE_PULL_REQUEST
                echo "Skip doing stuff since it is a PR."
              else
                echo "Not a PR, so now do what I want."
