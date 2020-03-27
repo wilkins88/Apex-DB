@@ -4,22 +4,27 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/23/2020, 1:57:21 PM
+ * @Last Modified On   : 3/27/2020, 12:13:15 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/23/2020   Thomas Wilkins     Initial Version
 **/
 public inherited sharing class QueryOptions implements IQueryOptions {
 
+    @TestVisible
     private ISelector primarySelector;
-
+    @TestVisible
+    private ISoqlCondition condition;
+    @TestVisible
+    private Integer offset; 
+    @TestVisible 
     private List<CrossObjectQueryOptions> crossObjectQueries {
         get {
             if (this.crossObjectQueries == null) this.crossObjectQueries = new List<CrossObjectQueryOptions>();
             return this.crossObjectQueries;
         } set;
     }
-
+    @TestVisible
     private List<RelatedListQueryOptions> relatedListQueries {
         get {
             if (this.relatedListQueries == null) this.relatedListQueries = new List<RelatedListQueryOptions>();
@@ -27,15 +32,12 @@ public inherited sharing class QueryOptions implements IQueryOptions {
         } set;
     }
 
-    private ISoqlCondition condition;
-
-    private Integer offset; 
-
-    public QueryOptions(ISelector primarySelector) {
+    public QueryOptions setPrimarySelector(ISelector primarySelector) {
         this.primarySelector = primarySelector;
+        return this;
     }
 
-    public QueryOptions setCrossObjectQuery(CrossObjectQueryOptions crossObjectQueryOptions) {
+    public QueryOptions addCrossObjectQuery(CrossObjectQueryOptions crossObjectQueryOptions) {
         this.crossObjectQueries.add(crossObjectQueryOptions);
         return this;
     }
@@ -45,13 +47,18 @@ public inherited sharing class QueryOptions implements IQueryOptions {
         return this;
     }
 
-    public QueryOptions setRelatedListQuery(RelatedListQueryOptions relatedListQueryOptions) {
+    public QueryOptions addRelatedListQuery(RelatedListQueryOptions relatedListQueryOptions) {
         this.relatedListQueries.add(relatedListQueryOptions);
         return this;
     }
 
     public QueryOptions clearRelatedListQueries() {
         this.relatedListQueries.clear();
+        return this;
+    }
+
+    public QueryOptions setSoqlCondition(ISoqlCondition condition) {
+        this.condition = condition;
         return this;
     }
 

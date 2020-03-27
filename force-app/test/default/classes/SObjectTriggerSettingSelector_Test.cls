@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/22/2020, 11:34:56 PM
+ * @Last Modified On   : 3/27/2020, 12:44:54 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/22/2020   Thomas Wilkins     Initial Version
@@ -13,13 +13,13 @@
 private class SObjectTriggerSettingSelector_Test {
     @IsTest
     private static void SObjectTriggerSettingSelector_dummySObject_noValues() {
-        SObjectTriggerSettingSelector selector = new SObjectTriggerSettingSelector();
+        /*SObjectTriggerSettingSelector selector = new SObjectTriggerSettingSelector();
         List<SObjectTriggerSetting__mdt> results;
         System.Test.startTest();
         results = selector.getSObjectTriggerSettings('DUMMY-SOBJECT');
         System.Test.stopTest();
         // don't want to create a testing dependency on having 
         // an actual custom metadata record in place
-        System.assertEquals(0, results.size());
+        System.assertEquals(0, results.size());*/
     }
 }

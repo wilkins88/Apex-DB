@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/22/2020, 11:34:18 PM
+ * @Last Modified On   : 3/27/2020, 12:21:51 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/22/2020   Thomas Wilkins     Initial Version
@@ -77,22 +77,8 @@ public inherited sharing class TriggerDispatcher {
     **/
     @TestVisible
     private List<ITriggerHandler> loadHandlers(Schema.SObjectType sObjType) {
-        String sObjTypeStr = String.valueOf(sObjType);
-        if (this.handlerMap.containsKey(sObjTypeStr)) return this.handlerMap.get(sObjTypeStr);
-
-        List<SObjectTriggerSetting__mdt> settings = this.selector.getSObjectTriggerSettings(sObjTypeStr);
-
-        // support multiple settings per sObject here in case you have multiple
-        // settings split across multiple packages that get 
-        List<ITriggerHandler> handlers = new List<ITriggerHandler>();
-        for (SObjectTriggerSetting__mdt sObjectSetting : settings) {
-            for (TriggerHandlerSetting__mdt handlerSetting : sObjectSetting.TriggerHandlerSettings__r) {
-                ITriggerHandler handler = (ITriggerHandler)Type.forName(handlerSetting.ClassName__c).newInstance();
-                handler.setTriggerContext(ctx);
-                handlers.add(handler);
-            }
-        }
-        this.handlerMap.put(sObjTypeStr, handlers);
-        return handlers;
+        DatabaseConnection conn = new DatabaseConnection();
+        List<SObjectTriggerSetting__mdt> settings = (List<SObjectTriggerSetting__mdt>)conn.query(new TriggerSettingsQueryOptionsBuilder(sObjType));
+        return null;
     }
 }
