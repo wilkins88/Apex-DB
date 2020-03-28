@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/27/2020, 12:21:51 PM
+ * @Last Modified On   : 3/27/2020, 9:41:40 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/22/2020   Thomas Wilkins     Initial Version
@@ -17,7 +17,7 @@ public inherited sharing class TriggerDispatcher {
     @TestVisible
     private TriggerContext ctx;
     @TestVisible
-    private SObjectTriggerSettingSelector selector;
+    private DatabaseConnection conn;
     @TestVisible
     private Map<String, List<ITriggerHandler>> handlerMap {
         get {
@@ -32,10 +32,13 @@ public inherited sharing class TriggerDispatcher {
             return executeHandlers;
         } set;
     }
+    @TestVisible
+    private CacheManager manager;
 
-    public TriggerDispatcher(TriggerContext ctx, SObjectTriggerSettingSelector selector) {
+    public TriggerDispatcher(TriggerContext ctx, DatabaseConnection conn, CacheManager manager) {
         this.ctx = ctx;
-        this.selector = selector;
+        this.conn = conn;
+        this.manager = manager;
     }
 
     /**
@@ -77,8 +80,17 @@ public inherited sharing class TriggerDispatcher {
     **/
     @TestVisible
     private List<ITriggerHandler> loadHandlers(Schema.SObjectType sObjType) {
-        DatabaseConnection conn = new DatabaseConnection();
-        List<SObjectTriggerSetting__mdt> settings = (List<SObjectTriggerSetting__mdt>)conn.query(new TriggerSettingsQueryOptionsBuilder(sObjType));
-        return null;
+        // todo, implement caching layer
+        String sObjTypeStr = String.valueOf(sObjType);
+        if (handlerMap.containsKey(sObjTypeStr)) return handlerMap.get(sObjTypeStr);
+        List<SObjectTriggerSetting__mdt> settings = (List<SObjectTriggerSetting__mdt>)this.conn.query(new TriggerSettingsQueryOptionsBuilder(sObjType));
+        List<ITriggerHandler> handlers = new List<ITriggerHandler>();
+        for(SObjectTriggerSetting__mdt sObjSetting : settings) {
+            for (TriggerHandlerSetting__mdt triggerSetting : sObjSetting.TriggerHandlerSettings__r) {
+                handlers.add((ITriggerHandler)Type.forName(triggerSetting.ClassName__c).newInstance());
+            }
+        }
+        handlerMap.put(sObjTypeStr, handlers);
+        return handlers;
     }
 }
