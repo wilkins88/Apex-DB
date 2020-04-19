@@ -4,13 +4,13 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/27/2020, 12:02:14 PM
+ * @Last Modified On   : 4/18/2020, 2:08:00 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/25/2020   Thomas Wilkins     Initial Version
 **/
 public interface IQueryOptionsBuilder {
-    IQueryOptionsBuilder setPrimarySelector();
+    IQueryOptionsBuilder setFieldSet();
     IQueryOptionsBuilder setCrossObjectQueries();
     IQueryOptionsBuilder setRelatedListQueries();
     IQueryOptionsBuilder setSoqlCondition();
