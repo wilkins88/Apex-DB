@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/27/2020, 12:13:15 PM
+ * @Last Modified On   : 4/18/2020, 2:07:25 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/23/2020   Thomas Wilkins     Initial Version
@@ -12,7 +12,7 @@
 public inherited sharing class QueryOptions implements IQueryOptions {
 
     @TestVisible
-    private ISelector primarySelector;
+    private IFieldSet fieldSet;
     @TestVisible
     private ISoqlCondition condition;
     @TestVisible
@@ -32,8 +32,8 @@ public inherited sharing class QueryOptions implements IQueryOptions {
         } set;
     }
 
-    public QueryOptions setPrimarySelector(ISelector primarySelector) {
-        this.primarySelector = primarySelector;
+    public QueryOptions setIFieldSet(ISelector fieldSet) {
+        this.fieldSet = fieldSet;
         return this;
     }
 

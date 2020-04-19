@@ -5,18 +5,23 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/27/2020, 12:03:33 PM
+ * @Last Modified On   : 4/19/2020, 7:47:26 AM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/25/2020   Thomas Wilkins     Initial Version
 **/
-public inherited sharing class DatabaseConnection {
-    public List<SObject> query(IQueryOptionsBuilder optionsBuilder) {
-        IQueryOptions options = optionsBuilder.setPrimarySelector()
-            .setCrossObjectQueries()
-            .setRelatedListQueries()
-            .setSoqlCondition()
-            .getQueryOptions();
-        return Database.query(options.toSoql());
+public inherited sharing class DatabaseConnection implements IDatabaseConnection {
+    // todo error handling
+    public QueryResults query(IQueryOptionsBuilder optionsBuilder) {
+        try {
+            IQueryOptions options = optionsBuilder.setFieldSet()
+                .setCrossObjectQueries()
+                .setRelatedListQueries()
+                .setSoqlCondition()
+                .getQueryOptions();
+            return new QueryResults(Database.query(options.toSoql()));
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

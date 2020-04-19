@@ -1,15 +1,15 @@
 /**
- * @File Name          : ISelector.cls
- * @Description        : Interface used to define selector options
+ * @File Name          : IFieldSet.cls
+ * @Description        : Interface for capturing data field sets
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/23/2020, 12:12:26 AM
+ * @Last Modified On   : 4/18/2020, 2:06:49 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
- * 1.0    3/23/2020   Thomas Wilkins     Initial Version
+ * 1.0    4/18/2020   Thomas Wilkins     Initial Version
 **/
-public interface ISelector {
+public interface IFieldSet {
     /**
     * @description returns the type of Sobject that the selector is for
     * @author Thomas Wilkins | 3/22/2020 
