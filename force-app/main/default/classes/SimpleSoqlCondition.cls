@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/1/2020, 11:55:44 PM
+ * @Last Modified On   : 5/2/2020, 9:58:57 AM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/23/2020   Thomas Wilkins     Initial Version
@@ -45,6 +45,17 @@ public inherited sharing class SimpleSoqlCondition implements ISoqlCondition {
     **/
     public SimpleSoqlCondition isEqualTo(Object o) {
         this.setValues('=', o, false);
+        return this;
+    }
+
+    /**
+    * @description != operation
+    * @author Thomas Wilkins | 5/2/2020 
+    * @param o Object to be compared to
+    * @return SimpleSoqlCondition 
+    **/
+    public SimpleSoqlCondition isNotEqualTo(Object o) {
+        this.setValues('!=', o, false);
         return this;
     }
 
@@ -249,7 +260,7 @@ public inherited sharing class SimpleSoqlCondition implements ISoqlCondition {
             String.isBlank(this.operation) || 
             String.isBlank(this.conditionValue)
         ) {
-            //throw new SimpleSoqlConditionException(MISSING_CONDITION_DETAILS);
+            throw new SoqlException(MISSING_CONDITION_DETAILS);
         }
         String firstArg = this.isNotLike ? 'NOT ' + this.fieldName : this.fieldName;
         List<String> args = new List<String> {
