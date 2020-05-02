@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 3/24/2020, 12:04:44 AM
+ * @Last Modified On   : 5/1/2020, 11:55:44 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/23/2020   Thomas Wilkins     Initial Version
@@ -291,6 +291,7 @@ public inherited sharing class SimpleSoqlCondition implements ISoqlCondition {
             Date value = (Date)o; 
             valueString += Datetime.newInstance((value).year(), (value).month(), (value).day()).format('yyyy-MM-dd');
         } else if (o instanceOf Datetime) {
+            // think I might need to revisit this being in GMT
             Datetime value = (Datetime)o;
             valueString += value.formatGmt('yyyy-MM-dd') + 'T' + value.formatGmt('HH:mm:ss') + 'Z';
         } else if (o instanceOf List<Object>) {
