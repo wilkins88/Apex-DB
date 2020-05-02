@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 4/23/2020, 10:22:28 AM
+ * @Last Modified On   : 5/1/2020, 3:10:42 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    4/18/2020   Thomas Wilkins     Initial Version
@@ -21,7 +21,7 @@ public inherited sharing class QueryResults {
     }
 
     /**
-    * @description returns whether or not the query has an results
+    * @description returns whether or not the query has an results 
     * @author Thomas Wilkins | 4/19/2020 
     * @return Boolean 
     **/
