@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 4/23/2020, 9:59:46 AM
+ * @Last Modified On   : 5/3/2020, 12:18:35 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    4/19/2020   Thomas Wilkins     Initial Version
@@ -16,5 +16,5 @@ public interface IDatabaseConnection {
     * @param optionsBuilder query options builder to generate query
     * @return QueryResults 
     **/
-    QueryResults query(IQueryOptionsBuilder optionsBuilder);
+    QueryResults query(IQueryDirector queryDirector);
 }
