@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/3/2020, 12:16:56 PM
+ * @Last Modified On   : 5/7/2020, 12:15:35 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    5/2/2020   Thomas Wilkins     Initial Version
@@ -30,7 +30,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder 
     **/
-    public abstract StandardQueryOptionsBuilder getPrimaryFieldSet();
+    public abstract StandardQueryOptionsBuilder setPrimaryFieldSet();
 
     /**
     * @description Builds the query options based off set values
@@ -53,7 +53,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder
     **/
-    public virtual StandardQueryOptionsBuilder getCrossObjectQueryOptions() {
+    public virtual StandardQueryOptionsBuilder setCrossObjectQueryOptions() {
         return this;
     }
     /**
@@ -61,7 +61,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder
     **/
-    public virtual StandardQueryOptionsBuilder getRelatedListQueryOptions() {
+    public virtual StandardQueryOptionsBuilder setRelatedListQueryOptions() {
         return this;
     }
     /**
@@ -69,7 +69,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder 
     **/
-    public virtual StandardQueryOptionsBuilder getSoqlCondition() {
+    public virtual StandardQueryOptionsBuilder setSoqlCondition() {
         return this;
     }
     /**
@@ -77,7 +77,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder 
     **/
-    public virtual StandardQueryOptionsBuilder getOffset() {
+    public virtual StandardQueryOptionsBuilder setOffset() {
         return this;
     }
     /**
@@ -85,7 +85,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder
     **/
-    public virtual StandardQueryOptionsBuilder getLimit() {
+    public virtual StandardQueryOptionsBuilder setLimit() {
         return this;
     }
     /**
@@ -93,7 +93,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder
     **/
-    public virtual StandardQueryOptionsBuilder getOrdering() {
+    public virtual StandardQueryOptionsBuilder setOrdering() {
         return this;
     }
 }
