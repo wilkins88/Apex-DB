@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/7/2020, 12:15:35 PM
+ * @Last Modified On   : 5/14/2020, 8:21:39 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    5/2/2020   Thomas Wilkins     Initial Version
@@ -13,7 +13,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     @TestVisible
     protected IFieldSet fieldSet;
     @TestVisible
-    protected List<CrossObjectQueryOptions> crossObjectQueries;
+    protected List<ParentObjectQueryOptions> parentObjectQueries;
     @TestVisible
     protected List<RelatedListQueryOptions> relatedListQueries;
     @TestVisible
@@ -40,7 +40,7 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     public IQueryOptions getQueryOptions() {
         StandardQueryOptions options = new StandardQueryOptions();
         return options.setFieldSet(this.fieldSet)
-            .setCrossObjectQueries(this.crossObjectQueries)
+            .setParentObjectQueries(this.parentObjectQueries)
             .setRelatedListQueries(this.relatedListQueries)
             .setSoqlCondition(this.condition)
             .setOffset(this.recordOffset)
@@ -49,11 +49,11 @@ public abstract class StandardQueryOptionsBuilder implements IQueryOptionsBuilde
     }
 
     /**
-    * @description Override to add cross object queries for parent relationships
+    * @description Override to add parent object queries for parent relationships
     * @author Thomas Wilkins | 5/2/2020 
     * @return StandardQueryOptionsBuilder
     **/
-    public virtual StandardQueryOptionsBuilder setCrossObjectQueryOptions() {
+    public virtual StandardQueryOptionsBuilder setParentObjectQueryOptions() {
         return this;
     }
     /**
