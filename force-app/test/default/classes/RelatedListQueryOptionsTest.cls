@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/15/2020, 12:00:40 AM
+ * @Last Modified On   : 5/15/2020, 12:06:43 AM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    5/14/2020   Thomas Wilkins     Initial Version
@@ -188,6 +188,6 @@ private class RelatedListQueryOptionsTest {
         System.Test.startTest();
         str = options.toString();
         System.Test.stopTest();
-        System.assertEquals('(SELECT Name FROM Account WHERE Name = test LIMIT 1 OFFSET 1)', str);
+        System.assertEquals('(SELECT Name FROM Account WHERE Name = \'test\' LIMIT 1 OFFSET 1)', str);
     }
 }
