@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/7/2020, 2:05:28 PM
+ * @Last Modified On   : 5/14/2020, 8:23:54 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    5/7/2020   Thomas Wilkins     Initial Version
@@ -18,7 +18,7 @@ public inherited sharing class CompleteSoqlQueryDirector {
 
     public IQueryOptions construct() {
         return builder.setPrimaryFieldSet()
-            .setCrossObjectQueryOptions()
+            .setParentObjectQueryOptions()
             .setRelatedListQueryOptions()
             .setSoqlCondition()
             .setOrdering()

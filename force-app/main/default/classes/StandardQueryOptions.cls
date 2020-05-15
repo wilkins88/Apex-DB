@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/2/2020, 3:19:05 PM
+ * @Last Modified On   : 5/14/2020, 8:21:07 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    3/23/2020   Thomas Wilkins     Initial Version
@@ -21,10 +21,10 @@ public inherited sharing class StandardQueryOptions implements IQueryOptions {
     @TestVisible
     private Integer offset, recordLimit;
     @TestVisible 
-    private List<CrossObjectQueryOptions> crossObjectQueries {
+    private List<ParentObjectQueryOptions> parentObjectQueries {
         get {
-            if (this.crossObjectQueries == null) this.crossObjectQueries = new List<CrossObjectQueryOptions>();
-            return this.crossObjectQueries;
+            if (this.parentObjectQueries == null) this.parentObjectQueries = new List<ParentObjectQueryOptions>();
+            return this.parentObjectQueries;
         } set;
     }
     @TestVisible
@@ -48,17 +48,17 @@ public inherited sharing class StandardQueryOptions implements IQueryOptions {
         return this;
     }
 
-    public StandardQueryOptions setCrossObjectQuery(CrossObjectQueryOptions option) {
-        return this.setCrossObjectQueries(new List<CrossObjectQueryOptions> { option });
+    public StandardQueryOptions setParentObjectQuery(ParentObjectQueryOptions option) {
+        return this.setparentObjectQueries(new List<ParentObjectQueryOptions> { option });
     }
 
-    public StandardQueryOptions setCrossObjectQueries(List<CrossObjectQueryOptions> options) {
-        this.crossObjectQueries = options;
+    public StandardQueryOptions setParentObjectQueries(List<ParentObjectQueryOptions> options) {
+        this.parentObjectQueries = options;
         return this;
     }
 
-    public StandardQueryOptions clearCrossObjectQueries() {
-        this.crossObjectQueries.clear();
+    public StandardQueryOptions clearParentObjectQueries() {
+        this.parentObjectQueries.clear();
         return this;
     }
 

@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/7/2020, 3:01:20 PM
+ * @Last Modified On   : 5/14/2020, 8:22:42 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    5/4/2020   Thomas Wilkins     Initial Version
@@ -12,7 +12,7 @@
 @IsTest
 public inherited sharing class StandardQueryOptionsBuilderMock extends StandardQueryOptionsBuilder {
     @TestVisible
-    private Boolean hasSetFields, hasSetCrossObjectQuery, hasSetRelatedListQuery,
+    private Boolean hasSetFields, hasSetParentObjectQuery, hasSetRelatedListQuery,
         hasSetSoqlCondition, hasSetLimit, hasSetOffset, hasSetOrdering;
         
     public override StandardQueryOptionsBuilder setSoqlCondition() {
@@ -36,8 +36,8 @@ public inherited sharing class StandardQueryOptionsBuilderMock extends StandardQ
         return this;
     }
 
-    public override StandardQueryOptionsBuilder setCrossObjectQueryOptions() {
-        this.hasSetCrossObjectQuery = true;
+    public override StandardQueryOptionsBuilder setParentObjectQueryOptions() {
+        this.hasSetParentObjectQuery = true;
         return this;
     }
 

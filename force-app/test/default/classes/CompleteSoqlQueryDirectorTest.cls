@@ -4,7 +4,7 @@
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/7/2020, 4:01:52 PM
+ * @Last Modified On   : 5/14/2020, 8:23:08 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    5/7/2020   Thomas Wilkins     Initial Version
@@ -27,6 +27,6 @@ private class CompleteSoqlQueryDirectorTest {
         System.assert(mock.hasSetLimit);
         System.assert(mock.hasSetOrdering);
         System.assert(mock.hasSetRelatedListQuery);
-        System.assert(mock.hasSetCrossObjectQuery);
+        System.assert(mock.hasSetParentObjectQuery);
     }
 }

@@ -1,20 +1,20 @@
 /**
- * @File Name          : RelatedListSoqlQueryDirectorTest.cls
+ * @File Name          : ObjectWithParentQueryDirectorTest.cls
  * @Description        : 
  * @Author             : Thomas Wilkins
  * @Group              : 
  * @Last Modified By   : Thomas Wilkins
- * @Last Modified On   : 5/7/2020, 4:00:50 PM
+ * @Last Modified On   : 5/14/2020, 8:23:03 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    5/7/2020   Thomas Wilkins     Initial Version
 **/
 @IsTest
-private class RelatedListSoqlQueryDirectorTest {
+private class ObjectWithParentQueryDirectorTest {
     @IsTest
     private static void testConstruct_mockBuilder_buildSuccess() {
         StandardQueryOptionsBuilderMock mock = new StandardQueryOptionsBuilderMock();
-        RelatedListSoqlQueryDirector director = new RelatedListSoqlQueryDirector(mock);
+        ObjectWithParentQueryDirector director = new ObjectWithParentQueryDirector(mock);
         IQueryOptions options;
         System.Test.startTest();
         options = director.construct();
@@ -26,6 +26,6 @@ private class RelatedListSoqlQueryDirectorTest {
         System.assert(mock.hasSetOffset);
         System.assert(mock.hasSetLimit);
         System.assert(mock.hasSetOrdering);
-        System.assert(mock.hasSetRelatedListQuery);
+        System.assert(mock.hasSetParentObjectQuery);
     }
 }
